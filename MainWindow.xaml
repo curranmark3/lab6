@@ -20,8 +20,8 @@
         </Grid.ColumnDefinitions>
 
         <ListBox x:Name="lbx_stock" Grid.Row="1" Grid.Column="0" Margin="10" SelectionChanged="lbx_stock_SelectionChanged" />
-        <ListBox x:Name="lbx_suppliers" DisplayMemberPath="SupplierName" SelectedValuePath="SupplierID" Grid.Row="1" Grid.Column="1" Margin="10" />
-        <ListBox x:Name="lbx_countries" Grid.Row="1" Grid.Column="2" Margin="10"/>
+        <ListBox x:Name="lbx_suppliers" DisplayMemberPath="SupplierName" SelectedValuePath="SupplierID" Grid.Row="1" Grid.Column="1" Margin="10" SelectionChanged="lbx_suppliers_SelectionChanged" />
+        <ListBox x:Name="lbx_countries" Grid.Row="1" Grid.Column="2" Margin="10" SelectionChanged="lbx_countries_SelectionChanged"/>
 
         <ListBox x:Name="lbx_products" Grid.Row="3" Grid.ColumnSpan="3" Margin="10" />
 

@@ -78,5 +78,29 @@ namespace lab6
 			}
 			lbx_products.ItemsSource = query.ToList();
 		}
+
+		private void lbx_suppliers_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+		{
+			int supplierID = Convert.ToInt32(lbx_suppliers.SelectedValue);
+
+			var query = from p in db.Products
+						where p.SupplierID == supplierID
+						orderby p.ProductName
+						select p.ProductName;
+
+			lbx_products.ItemsSource = query.ToList();
+		}
+
+		private void lbx_countries_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+		{
+			string country = (string)lbx_countries.SelectedValue;
+
+			var query = from p in db.Products
+						where p.Supplier.Country == country
+						orderby p.ProductName
+						select p.ProductName;
+
+			lbx_countries.ItemsSource = query.ToList();
+		}
 	}
 }
