@@ -38,7 +38,45 @@ namespace lab6
 			var countries = query2.ToList();
 			lbx_countries.ItemsSource = countries.Distinct();
 
-			public enum StockLevel { Low, Normal, Overstocked };
+		}
+		public enum StockLevel { Low, Normal, Overstocked };
+
+		private void lbx_stock_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+		{
+			var query = from p in db.Products
+						where p.UnitsInStock < 50
+						orderby p.ProductName
+						select p.ProductName;
+
+			string selected = lbx_countries.SelectedItem as string;
+
+			switch (selected)
+			{
+				case "Low":
+					{
+
+						break;
+					}
+				case "Normal":
+					{
+						query = from p in db.Products
+								where p.UnitsInStock > 50 && p.UnitsInStock < 100
+								orderby p.ProductName
+								select p.ProductName;
+						break;
+					}
+				case "Overstocked":
+				{
+						query = from p in db.Products
+								where p.UnitsInStock > 100
+								orderby p.ProductName
+								select p.ProductName;
+						break;
+				}
+				default:
+					break;
+			}
+			lbx_products.ItemsSource = query.ToList();
 		}
 	}
 }
