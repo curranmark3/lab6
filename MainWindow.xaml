@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lab6"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -20,7 +20,7 @@
         </Grid.ColumnDefinitions>
 
         <ListBox x:Name="lbx_stock" Grid.Row="1" Grid.Column="0" Margin="10" />
-        <ListBox x:Name="lbx_suppliers" Grid.Row="1" Grid.Column="1" Margin="10" />
+        <ListBox x:Name="lbx_suppliers" DisplayMemberPath="SupplierName" SelectedValuePath="SupplierID" Grid.Row="1" Grid.Column="1" Margin="10" />
         <ListBox x:Name="lbx_countries" Grid.Row="1" Grid.Column="2" Margin="10"/>
 
         <ListBox x:Name="lbx_products" Grid.Row="3" Grid.ColumnSpan="3" Margin="10" />
